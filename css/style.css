@@ -1,0 +1,76 @@
+*{
+	margin:0;
+	padding:0;
+}
+
+body{
+	font-family: "微软雅黑";
+
+}
+
+.banner{
+	width:1200px;
+	height:460px;
+	margin:20px auto;
+	overflow: hidden;
+	position: relative;
+
+}
+.banner_img{
+	width:1200px;
+	height:460px;
+	position: relative;
+}
+.banner_img a img{
+	width:1200px;
+	height: 460px;
+	position: absolute;
+	display:none;
+}
+.banner_img a img.slide-active{
+	display: block;
+}
+
+.button{
+	position: absolute;
+	width:35px;
+	height:70px;
+	left:244px;
+	top:50%;
+    margin-top: -35px;
+    background: url(../img/arrow.png) no-repeat center center;
+
+}
+
+.next{
+	left:auto;
+	right:20px;
+}
+.prev{
+	transform: rotate(180deg);
+}
+.button:hover{
+	background-color:#333;
+	opacity: 0.5;
+	fliter:alpha(opacity=50);
+}
+
+.dots{
+	position: absolute;
+	right: 10px;
+	bottom:25px;
+    text-align: right;
+}
+.dots span{
+	display: inline-block;
+	width:10px;
+	height: 10px;
+	line-height: 10px;
+	border-radius: 50%;
+	background:rgba(255,255,255,0.4);
+	margin-right: 5px;
+	cursor: pointer;
+}
+.dots .active{
+	background-color:rgba(7,17,27,0.4);
+}
