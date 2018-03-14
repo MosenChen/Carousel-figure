@@ -8,7 +8,11 @@ var index=0,
     dots=document.getElementById("dots").getElementsByTagName("span"),
     prev=document.getElementById("prev"),
     next=document.getElementById("next"),
-    len=imgs.length;
+    len=imgs.length,
+    menu=document.getElementById("menu_content"),
+    menuitem=menu.getElementsByClassName("menu-item"),
+    submenu=document.getElementById("sub-menu"),
+    innerbox=submenu.getElementsByClassName("inner-box");
 function slideImg(){
 	var banner=document.getElementById("banner");
 	//滑过清除定时器，离开继续
@@ -51,6 +55,30 @@ function slideImg(){
 			index=len-1;
 		}
 		changeImg();
+	}
+	//导航菜单
+	//遍历主菜单，且绑定事件
+	for(var m=0;m<menuitem.length;m++){
+		menuitem[m].setAttribute("data-index",m);
+		menuitem[m].onmouseover=function(){
+           var idx=this.getAttribute("data-index");
+           for(var t=0;t<innerbox.length;t++){
+           	innerbox[t].style.display="none";
+           	menuitem[t].style.background="none";
+           }
+           submenu.className="sub-menu";
+           innerbox[idx].style.display="block";
+           menuitem[idx].style.background="rgba(0,0,0,0.1)";
+		}
+	}
+	menu.onmouseout=function(){
+		submenu.className="sub-menu hide";
+	}
+	submenu.onmouseover=function(){
+		this.className="sub-menu";
+	}
+	submenu.onmouseout=function(){
+		this.className="sub-menu hide";
 	}
 }
 
